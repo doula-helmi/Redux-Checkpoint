@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import './app.css'
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import {Typography} from "@mui/material";
+import AddTask from "./components/AddTask";
+import TaskFilter from "./components/TaskFilter";
+import ListTask from "./components/ListTask";
+import { useSelector } from "react-redux";
+
 
 function App() {
+  const todoList = useSelector((state) => state);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Container sx={{width: "600px"}} fixed>
+        <Box sx={{bgcolor: "#fff", height: "100vh"}}>
+          <Typography
+            variant="h1"
+            component="h1"
+            align="center"
+            fontSize="30px"
+            fontWeight="600"
+            padding="2rem"
+            color="#6c6c6c"
+          >
+            ToDo Application
+          </Typography>
+          <AddTask />
+          <ListTask todo={todoList} />
+          <TaskFilter />
+        </Box>
+      </Container>
+    </React.Fragment>
   );
 }
 
