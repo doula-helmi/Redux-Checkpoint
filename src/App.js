@@ -11,9 +11,7 @@ import { useSelector } from "react-redux";
 
 
 function App() {
-  const todoList = useSelector((state) => state);
-
-
+ 
   return (
     <React.Fragment>
       <CssBaseline />
@@ -31,8 +29,8 @@ function App() {
             ToDo Application
           </Typography>
           <AddTask />
-          <ListTask todo={todoList} />
-          <TaskFilter />
+          <ListTask />
+          <TaskFilter/>
         </Box>
       </Container>
     </React.Fragment>

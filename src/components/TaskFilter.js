@@ -9,7 +9,7 @@ const TaskFilter = () => {
   const [alignment, setAlignment] = React.useState("ALL");
   
   let dispatch = useDispatch();
-  const todoList = useSelector((state) => state);
+
   
   return (
     <ToggleButtonGroup
@@ -19,9 +19,9 @@ const TaskFilter = () => {
       aria-label="Platform"
       sx={{display:"flex",  justifyContent: "center"}}
     >
-      <ToggleButton onClick={(e) => {dispatch(filterDONE(true && false)); setAlignment(e.target.value)}} value="ALL">ALL</ToggleButton>
-      <ToggleButton onClick={(e) => {dispatch(filterDONE(true)); setAlignment(e.target.value)}} value="Done">Done</ToggleButton>
-      <ToggleButton onClick={(e) => {dispatch(filterDONE(false)); setAlignment(e.target.value)}} value="!Done">!Done</ToggleButton>
+      <ToggleButton onClick={(e) => {dispatch(filterDONE("All")); setAlignment(e.target.value)}} value="ALL">ALL</ToggleButton>
+      <ToggleButton onClick={(e) => {dispatch(filterDONE("done")); setAlignment(e.target.value)}} value="Done">Done</ToggleButton>
+      <ToggleButton onClick={(e) => {dispatch(filterDONE("notdone")); setAlignment(e.target.value)}} value="!Done">!Done</ToggleButton>
     </ToggleButtonGroup>
   );
 };
